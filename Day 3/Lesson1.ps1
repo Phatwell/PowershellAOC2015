@@ -1,11 +1,46 @@
-﻿$instructions = get-content 'S:\Prod\AdventOfCode\ChrisH\2015 Lesson 1\PowershellAOC2015\Day 3'
+﻿$inp = get-content 'S:\Prod\AdventOfCode\ChrisH\2015 Lesson 1\PowershellAOC2015\Day 3\DAY 3\puzzleinput.txt'
 
-[int]$count = 1
+$x = 0
+$y = 0
+
+$housepresent = @{}
+
+$instructions = $inp -split ''
 
 foreach ($instruction in $instructions)
     {
-    $count ++
+    if ($instruction -eq '^')
 
-    $housecount = $count
+        {
+        $y = $y + 1
+        }
+
+    if ($instruction -eq '>')
+
+        {
+        $x = $x + 1
+        }
+
+    if ($instruction -eq 'v')
+
+        {
+        $y = $y - 1
+        }
+
+    if ($instruction -eq '<')
+
+        {
+        $x = $x - 1
+        }
+
+$housepresent."$x.$y" = 1
+
     }
-Write-Host "Houses receiving a present is $housecount"
+
+$coordinates = "$x.$y"
+
+$AmountofHouses = $housepresent.Count
+
+write-host "The amount of houses receiving a present is..." -NoNewline -ForegroundColor Yellow
+
+write-host "$AmountofHouses" -ForegroundColor Green
