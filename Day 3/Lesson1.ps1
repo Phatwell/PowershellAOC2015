@@ -1,4 +1,4 @@
-﻿$instructions = get-content 'X:\chris\Documents\Powershell\Powershell2015\Day 3\puzzleinput.txt'
+﻿$instructions = get-content 'S:\Prod\AdventOfCode\ChrisH\2015 Lesson 1\PowershellAOC2015\Day 3'
 
 [int]$count = 1
 
