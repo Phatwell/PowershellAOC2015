@@ -1,4 +1,4 @@
-﻿$inp = get-content 'S:\Prod\AdventOfCode\ChrisH\2015 Lesson 1\PowershellAOC2015\Day 3\DAY 3\puzzleinput.txt'
+﻿$inp = get-content 'X:\chris\Documents\Powershell\Powershell2015\Day 3\DAY 3\puzzleinput.txt'
 
 $x = 0
 $y = 0
