@@ -100,12 +100,10 @@ foreach ($rs in $rs)
         $rsx = $rsx - 1
         }
 
-$rshousepresent."$rsx.$rsy" = 1
+$sahousepresent."$rsx.$rsy" = 1
 
     }
 
-    $rscoordinates = "$rsx.$rsy"
+$amountofhouses = $sahousepresent.count
 
-
-
-
+Write-host "The amount of houses receiving a present is $amountofhouses"
