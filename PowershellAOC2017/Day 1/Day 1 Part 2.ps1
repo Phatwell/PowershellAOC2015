@@ -1,31 +1,77 @@
-﻿$instructions = Get-Content "D:\chris\PowershellAOC2017\Day 1\puzzleinput.txt"
+﻿$instructions = Get-Content "D:\chrishat\PowershellAOC2015\PowershellAOC2017\Day 1\puzzleinput.txt"
 $results = $null
-[int]$i = -2
+$results2 = $null
+[int]$i = -1
 $numbers = [int[]]($instructions -split '' | where {$_ -match '.'}) 
-
-[int]$numberofintegers = $numbers.Length
-$amount = $numberofintegers/2
-
 
 
 foreach ($number in $numbers)
     {
-    
         $i++
-            if ($number -eq $numbers[$i])
+            if ($i -lt 1038)
                 {
-
-                $results += $number
-
+                    if($number -eq $numbers[$i+1037])
+                        {
+                        $results += $number
+                        }
+                    Else
+                        {
+                        }
                 }
-
-            else 
+            elseif($i -gt 1037)
                 {
-                }
-    
-    }
+                    if($number -eq $numbers[$i-1037])
+                        {
+                        $results2 += $number
+                        }
+                    Else
+                        {
+                        }
+                }               
 
-Write-host "The results are $results"
+}
+
+$Answer = $results + $results2
+
+Write-Host "The answer is $answer"
+
+
+
+
+
+
+
+
+
+
+
+#[int]$numberofintegers = $numbers.Length
+#$amount = $numberofintegers/2
+
+
+
+#foreach ($number in $numbers)
+#    {
+#    
+#        $i++
+#            if ($number -eq $numbers[$i+1037])
+#                {
+#
+#                $results += $number
+#
+#                }
+#
+#            else 
+#                {
+#                }
+#    
+#    }
+#
+#Write-host "The results are $results"
+
+
+#2074 numbers in the list
+
 
 
 
