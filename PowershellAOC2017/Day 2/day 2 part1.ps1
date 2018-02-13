@@ -1,21 +1,22 @@
-﻿$instructions = Get-Content "D:\chrishat\PowershellAOC2015\PowershellAOC2017\Day 2\puzzleinput.txt.txt"
-$instructionssplit = $instructions -split ([Environment]::NewLine)
+﻿$result = $null
+$instructions = Get-Content "D:\chrishat\PowershellAOC2015\PowershellAOC2017\Day 2\puzzleinput.txt.txt"
+$instructionssplits = $instructions -split ([Environment]::NewLine)
 
 
 
-foreach($instruction in $instructions)
-[int[]]$splitinstructions = $instructions -split '\s+'
+foreach($instructionssplit in $instructionssplits)
+{
+
+[int[]]$numbers = $instructionssplit -split '\s+'
+
+[int[]]$numbersorted = $numbers | sort -Descending 
+
+$result += $numbersorted[0] - $numbersorted[-1]
+
+}
 
 
-    {
-        $sortedno = $splitinstruction | Sort-Object -Descending
-            
-
-
-
-    }
-
-
+Write-Host "The checksum of the spreadsheet is $result"
 
 
 
