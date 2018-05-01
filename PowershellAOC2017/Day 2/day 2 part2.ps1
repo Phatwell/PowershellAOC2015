@@ -1,6 +1,11 @@
 ﻿$results = $null
 $instructions = Get-Content "D:\chrishat\PowershellAOC2015\PowershellAOC2017\Day 2\puzzleinput.txt.txt"
 $rows = $instructions -split ([Environment]::NewLine)
+$firstnumber = $null
+$secondnumber = $null
+$calcresult = $null
+$calc = $null
+$sortednumbers = $null
 
 
 
@@ -8,31 +13,38 @@ foreach($row in $rows)
     {
 
         [int[]]$numbers = $row -split '\s+'
+
+        $sortednumbers = $numbers | sort -Descending
+
         
-    }
-    
-    
-
-
-
-#[int[]]$numbersorted = $numbers | sort -Descending 
-
-#$result += $numbersorted[0] - $numbersorted[-1]
-
-
-
-Write-Host "The checksum of the spreadsheet is $results"
-
-
-
-        foreach ($first in $numbers)
+        foreach ($firstnumber in $sortednumbers)
         {
-            foreach ($second in ($numbers | ? {$_ -ne $first}))
-            {
-            }
+            foreach($secondnumber in $sortednumbers)
+                {
+                
+                if($firstnumber -ne $secondnumber)
+                {
+                
+                $calcresult = $firstnumber%$secondnumber
+
+                    if($calcresult -eq 0)
+                        {
+                        $calc = $firstnumber/$secondnumber
+
+                        $results += $calc
+                        }
+                    else{}
+
+                }
+
+                else{}
+
+                   
+                        
+                 }  
         }
-
-
+      }
+       
 
 
     #foreach horizontal line.
@@ -45,4 +57,10 @@ Write-Host "The checksum of the spreadsheet is $results"
 
     #if x -eq x.trim then use it. if not dont
     # 1 foreach numnber 
-        second array 
+     #   second array 
+
+
+     #modulas the numbers (how many left over needs to be 0)
+     #sort the numbers
+
+     #guessed 23 was wrong
