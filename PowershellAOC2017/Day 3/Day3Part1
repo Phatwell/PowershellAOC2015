@@ -1,0 +1,47 @@
+[int]$Start = 1
+[int]$Number = 1
+[int]$timesby = 1
+[int]$wall = 0
+[int]$Ceiling = 0
+[int]$puzzle = 277678
+do{
+if(($Start -gt 0) -and ($Start -ne 277678))
+    {
+    $calc = $Number * $timesby
+    $number++
+    $Number++
+    $timesby++
+    $timesby++
+    $Start = $calc
+    $wall++
+    $Ceiling++
+    }
+if(($Start -eq 277678) -or ($Start -gt 277678))
+    {
+
+    Write-Host "I am at $wall and $Ceiling"
+    Write-Host "number is $Number"
+    Write-Host "timeby is $timesby"
+    }
+    }while($Start -lt 277679)
+
+$centerx = $wall/2
+$centery = $Ceiling/2
+
+$takeaway = $start - $puzzle
+
+$x = $wall - $takeaway
+$y = 0
+
+[int]$ycounter = 0
+[int]$xcounter = 0
+
+
+do{$y++
+    $ycounter++}while($y -ne $centery)
+do{$x--
+    $xcounter++}while($x -ne $centerx)
+
+$result = $xcounter + $ycounter
+
+Write-Host "the quickest way back is $result"
